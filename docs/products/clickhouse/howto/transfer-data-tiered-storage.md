@@ -1,19 +1,16 @@
 ---
 title: Transfer data between storage devices in Aiven for ClickHouse®'s tiered storage
-limited: true
+sidebar_label: Move data between storage devices
 ---
 
-After [enabling](/docs/products/clickhouse/howto/enable-tiered-storage) the tiered storage feature, you can move your data from SSD to object storage. Next, you may want to size down your SSD by selecting a service plan with less SSD capacity. Later, you can move your data from object storage back to your SSD if needed. Both operations can be performed using SQL statements against your tables directly.
+After [enabling](/docs/products/clickhouse/howto/enable-tiered-storage) the tiered storage feature, you can move your data from SSD to object storage.
+
+Next, you may want to size down your SSD by selecting
+a service plan with less SSD capacity. Later, you can move your data
+from object storage back to your SSD if needed. Both operations can be
+performed using SQL statements against your tables directly.
 
 ## Prerequisites
-
--   Tiered storage feature
-    [enabled](/docs/products/clickhouse/howto/enable-tiered-storage) at project level
-
-    :::note
-    This feature is in [limited availability](/docs/platform/concepts/beta_services).
-    [Contact the sales team](mailto:sales@aiven.io) to enable it for your project.
-    :::
 
 -   Aiven organization
 -   Command line tool

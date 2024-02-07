@@ -1,6 +1,6 @@
 ---
-title: Tiered storage in Aiven for ClickHouse®
-limited: true
+title: About tiered storage in Aiven for ClickHouse®
+sidebar_label: About tiered storage
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";

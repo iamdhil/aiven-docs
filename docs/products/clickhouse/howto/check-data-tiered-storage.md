@@ -1,6 +1,6 @@
 ---
 title: Check data distribution between storage devices in Aiven for ClickHouse®'s tiered storage
-limited: true
+sidebar_label: Check data distribution
 ---
 
 Monitor how your data is distributed between the two layers of your tiered storage: SSD and object storage.
@@ -18,13 +18,7 @@ median part sizes, and maximum part sizes.
 
 -   Tiered storage feature
     [enabled](/docs/products/clickhouse/howto/enable-tiered-storage) in a project,
-    database, or table
-
-    :::note
-    This feature is in [limited availability](/docs/platform/concepts/beta_services).
-    [Contact the sales team](mailto:sales@aiven.io) to enable it for your project.
-    :::
-
+    database, or table.
 -   Access to [Aiven Console](https://console.aiven.io/)
 -   Command line tool
     ([ClickHouse client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli))
@@ -43,9 +37,10 @@ Console](https://console.aiven.io/) > your Aiven for ClickHouse service > the
 
 ## Run a data distribution check with the ClickHouse client (CLI)
 
-1.  [Connect to your Aiven for ClickHouse service](/docs/products/clickhouse/howto/list-connect-to-service) using, for example, the ClickHouse client (CLI).
+1.  [Connect to your Aiven for ClickHouse service](/docs/products/clickhouse/howto/list-connect-to-service)
+    using, for example, the ClickHouse client (CLI).
 
-2.  Run the following query:
+1.  Run the following query:
 
     ```bash
     SELECT
