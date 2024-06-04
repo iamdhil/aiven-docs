@@ -14,7 +14,7 @@ read-replica services since the latter are not promoted if the primary
 server fails.
 :::
 
-There are two distinct cases when failover or switchover occurs:
+Failover or switchover occurs during:
 
 1.  Uncontrolled primary/replica disconnection
 1.  Controlled switchover during rolling-forward upgrades
@@ -37,14 +37,13 @@ different procedures in case of primary or replica nodes disconnections.
 
 If the **primary** server disappears, Aiven's management platform uses
 a **60-second timeout** before marking the server as down and promoting
-a replica server as new primary. During this 60-second timeout, the
-master is unavailable (`servicename-projectname.aivencloud.com` does not
-respond), and `replica-servicename-projectname.aivencloud.com` works
-fine (in read-only mode).
+a replica server as new primary. During this 60-second timeout,
+master server `servicename-projectname.aivencloud.com` is unavailable and doesn't
+respond, while replica server `replica-servicename-projectname.aivencloud.com` works
+fine in the read-only mode.
 
-After the replica promotion, `servicename-projectname.aivencloud.com`
-would point to the new primary server, while
-`replica-servicename-projectname.aivencloud.com` becomes unreachable.
+After the replica promotion, `servicename-projectname.aivencloud.com` points to the new
+primary server, and `replica-servicename-projectname.aivencloud.com` becomes unreachable.
 Finally, a new replica server is created, and after the synchronisation
 with the primary, the `replica-servicename-projectname.aivencloud.com`
 DNS is switched to point to the new replica server.
@@ -68,8 +67,8 @@ upgrade to a Premium plan with two standby servers used as read
 replicas.
 :::
 
-The DNS record pointing to primary server
-`SERVICE_NAME-PROJECT_NAME.aivencloud.com` remains unchanged during the
+The DNS record pointing to the primary server is
+`SERVICE_NAME-PROJECT_NAME.aivencloud.com`, even during the
 recovery of the replica server.
 
 ## Controlled switchover during upgrades or migrations
@@ -95,10 +94,10 @@ procedure is performed:
 1.  Cluster replication is changed to **quorum commit synchronous** to
     avoid data loss when changing primary server.
 
-:::note
-At this stage, one extra server is running: the old primary server, and
-N+1 replica servers (2 for Business and 3 for Premium plans).
-:::
+    :::note
+    At this stage, one extra server is running: the old primary server, and
+    N+1 replica servers (2 for Business and 3 for Premium plans).
+    :::
 
 1.  The old primary server is scheduled for termination, and one of the
     new replica servers is immediately promoted as a primary server.
@@ -107,19 +106,19 @@ N+1 replica servers (2 for Business and 3 for Premium plans).
     `replica-servicename-projectname.aivencloud.com` DNS record.
 
 :::note
-The old primary server is kept alive for a short period of time (minimum
+
+- The old primary server is kept alive for a short period of time (minimum
 60 seconds) with a TCP forwarding setup pointing to the new primary
 server allowing clients to connect before learning the new IP address.
-:::
 
-:::note
-If the service plan is changed from a business plan that has two nodes
+- If the service plan is changed from a business plan that has two nodes
 to a startup plan which only has one node of the same tier (for example,
 business-8 to startup-8), the standby node is removed while the primary
 node is retained, and connections to the primary are not affected by the
 downgrade. Similarly, upgrading the service plan from a startup one to a
 business one adds a standby node to the service cluster, and connections
 to the primary node are unaffected.
+
 :::
 
 ## Recreation of replication slots
@@ -165,8 +164,7 @@ When a failover to a standby occurs, the standby node already has
 replication slots with an up-to-date (maximum 5-second delay) positions
 from the primary.
 
-:::warning
-Uncontrolled failover ramifications
+:::warning[Uncontrolled failover ramifications]
 
 -   Slots created up to 30 seconds before the failover might be lost.
 -   If due to a cloud provider failure, a node from the one-node cluster
@@ -177,7 +175,7 @@ Uncontrolled failover ramifications
 
 :::note
 
--   Position of recovered replication slots might be up to several
+-   The position of recovered replication slots might be up to several
     seconds older than on the original primary. Therefore, when
     re-connecting to MySQL and reading from replication slots,
     it's recommended to use start positions known to the client until
