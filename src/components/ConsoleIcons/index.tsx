@@ -152,7 +152,8 @@ export default function ConsoleLabel({name}): ReactElement {
     case 'makesuperadmin':
       return (
         <>
-          <ConsoleIconWrapper icon={ConsoleIcons.superadmin} /> <b>Make super admin</b>
+          <ConsoleIconWrapper icon={ConsoleIcons.superadmin} />{' '}
+          <b>Make super admin</b>
         </>
       );
     case 'viewuserprofile':
@@ -284,6 +285,12 @@ export default function ConsoleLabel({name}): ReactElement {
         <>
           <ConsoleIconWrapper icon={ConsoleIcons.plusCircle} />{' '}
           <b>Plus Circle</b>
+        </>
+      );
+    case 'addnew':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.add} /> <b>Add new</b>
         </>
       );
     case 'plus':
