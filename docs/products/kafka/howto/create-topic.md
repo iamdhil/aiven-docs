@@ -4,8 +4,7 @@ title: Create an Apache Kafka® topic
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-When working with Apache Kafka®, while it is possible to configure it to [automatically create topics when a message is produced to a non-existent topic](create-topics-automatically), it is generally recommended to create topics beforehand,
-especially in production environments.
+You can configure Aiven for Apache Kafka® to [automatically create topics when a message is produced to a non-existent topic](create-topics-automatically), but it is recommended to create topics beforehand, especially in production environments.
 
 This approach offers several advantages:
 
@@ -15,8 +14,8 @@ This approach offers several advantages:
     other mistakes.
 
 :::note
-When tiered storage is activated for your Aiven for Apache Kafka service, all new topics
-will have tiered storage enabled by default.
+When tiered storage is activated for your Aiven for Apache Kafka service, all
+new topics will have tiered storage enabled by default
 [Learn more about tiered storage](/docs/products/kafka/concepts/kafka-tiered-storage).
 :::
 
@@ -32,9 +31,11 @@ will have tiered storage enabled by default.
 1. If required, set the advanced configuration option to **Yes**.
 1. In the **Topic advanced configuration** section, set properties such as the
    replication factor, number of partitions, and other settings. These settings can be
-   modified later if needed.
-1. Click **Create topic**. The new topic will be visible immediately, but it may take a
-   few minutes before you can update its settings.
+   modified later.
+1. Click **Create topic**.
+
+The new topic is visible immediately, but it may take a few minutes before you can
+update its settings.
 
 </TabItem>
 <TabItem value="CLI" label="CLI">
@@ -42,7 +43,7 @@ will have tiered storage enabled by default.
 1. Determine the topic specifications, including the number of partitions,
    replication factor, and other settings.
 
-1. Run the following command to create a topic named `exampleTopic`:
+1. Run the following command to create the `exampleTopic` topic:
 
    ```bash
    avn service topic-create             \
@@ -55,7 +56,7 @@ will have tiered storage enabled by default.
 
    Parameters:
 
-   - `avn service topic-create`: Command to create a topic.
+   - `avn service topic-create`: Creates a topic.
    - `--project demo-kafka-project`: Specifies the project name.
    - `--service-name demo-kafka-service`: Specifies the Aiven for Apache Kafka® service name.
    - `--topic exampleTopic`: Specifies the name of the topic to create.
