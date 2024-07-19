@@ -86,6 +86,13 @@ export default function ConsoleLabel({name}): ReactElement {
           <ConsoleIconWrapper icon={ConsoleIcons.database} /> <b>Databases</b>
         </>
       );
+    case 'databasestables':
+      return (
+        <>
+          <ConsoleIconWrapper icon={ConsoleIcons.database} />{' '}
+          <b>Databases and tables</b>
+        </>
+      );
     case 'pools':
       return (
         <>
