@@ -50,7 +50,7 @@ For data retention control purposes, the TTL clause uses the following:
 
 ### Add TTL to a new table
 
-Create a new table with the `storage_policy` setting set to `tiered` (to
+Create a table with the `storage_policy` setting set to `tiered` (to
 [enable](/docs/products/clickhouse/howto/enable-tiered-storage) the feature) and TTL
 (time-to-live) configured to add a
 time-based data retention threshold on the table.

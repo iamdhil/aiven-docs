@@ -8,7 +8,8 @@ Monitor how your data is distributed between the two layers of your tiered stora
 ## About checking data distribution
 
 If you have the tiered storage feature
-[enabled](/docs/products/clickhouse/howto/enable-tiered-storage) on your project, your data in Aiven for ClickHouse is
+[enabled](/docs/products/clickhouse/howto/enable-tiered-storage) on your project, your
+data in Aiven for ClickHouse is
 distributed between two storage devices (tiers). You can check on what
 storage devices your databases and tables are stored. You can also
 preview their total sizes as well as part counts, minimum part sizes,

@@ -55,7 +55,7 @@ use either SQL or [Aiven Console](https://console.aiven.io).
 1. On the **Overview** page of your service, select **Databases and tables** from the sidebar.
 1. In the **Databases and tables** view, find a table on which to activate tiered
    storage, and select **Activate tiered storage** from the **Actions** menu (**...**).
-1. In the **Activate tiered storage** window, confirm you want to activate
+1. In the **Activate tiered storage** window, confirm activating
    tiered storage on the table and understand the impact by selecting **Activate**.
 
 ### Activate with SQL
