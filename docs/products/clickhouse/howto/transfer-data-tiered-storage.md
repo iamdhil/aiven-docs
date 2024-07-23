@@ -12,7 +12,7 @@ performed using SQL statements against your tables directly.
 
 ## Prerequisites
 
--   Aiven organization
+-   At least one Aiven organization, project, and Aiven for ClickHouse service
 -   Command line tool
     ([ClickHouse client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli))
 

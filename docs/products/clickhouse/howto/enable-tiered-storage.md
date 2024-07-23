@@ -30,23 +30,16 @@ Enable the [Aiven for ClickHouse® tiered storage feature](/docs/products/clickh
     not possible to connect to an external existing
     object storage or cloud storage bucket.
 
-### Tools
-
-Depending on how to activate tiered storage, you may need:
-
-- [Aiven Console](https://console.aiven.io)
-- SQL and an SQL client (for example, the ClickHouse CLI client)
-
 ## Prerequisites
 
 -   You have an Aiven organization, at least one project, and at least one Aiven for
     ClickHouse service.
--   You have access to the [Aiven Console](https://console.aiven.io) or
-    a command line tool
-    ([ClickHouse client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli)) installed.
+-   Depending on how to activate tiered storage, you need:
+    - [Aiven Console](https://console.aiven.io) or
+    - SQL and an SQL client (for example, the [ClickHouse client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli)).
 -   All maintenance updates are applied on your service (check in the
-    [Aiven Console](https://console.aiven.io): your service's page > **Service settings**
-    \> **Service management** > **Maintenance updates**).
+    [Aiven Console](https://console.aiven.io): your service's <ConsoleLabel name="overview"/> >
+    <ConsoleLabel name="service settings"/> > **Service management** > **Maintenance updates**).
 
 ## Activate tiered storage on a table
 
@@ -57,11 +50,12 @@ use either SQL or [Aiven Console](https://console.aiven.io).
 ### Activate in Aiven Console
 
 1. Log in to [Aiven Console](https://console.aiven.io), and go to your organization,
-   projecy, and service.
-1. On the **Overview** page of your service, select **Databases and tables** from the sidebar.
-1. In the **Databases and tables** view, find a table on which to activate tiered
-   storage, and click <ConsoleLabel name="actions"/> > **Activate tiered storage**.
-1. In the **Activate tiered storage** window, confirm activating
+   project, and service.
+1. On the <ConsoleLabel name="overview"/> of your service, select
+   <ConsoleLabel name="databasestables"/> from the sidebar.
+1. In the <ConsoleLabel name="databasestables"/> view, find a table on which to activate tiered
+   storage, and click <ConsoleLabel name="actions"/> > <ConsoleLabel name="activatetieredstorage"/>.
+1. In the <ConsoleLabel name="activatetieredstorage"/> window, confirm activating
    tiered storage on the table and understand the impact by selecting **Activate**.
 
 ### Activate with SQL
@@ -78,9 +72,10 @@ use either SQL or [Aiven Console](https://console.aiven.io).
 Tiered storage is activated on your table and data in this table is now
 distributed between two tiers: SSD and object storage.
 
-You can check if tiered storage is now supported (**Active** / **Inactive**) on
-your table in [Aiven Console](https://console.aiven.io) > **Databases & Tables** >
-**Databases lists** > Your database > Your table > **Tiered storage** column.
+You can check if tiered storage is now supported (**Active**/**Not active**) on
+your table in [Aiven Console](https://console.aiven.io) >
+<ConsoleLabel name="databasestables"/> > **Databases lists** > Your database > Your table
+\> **Tiered storage** column.
 
 ## What's next
 

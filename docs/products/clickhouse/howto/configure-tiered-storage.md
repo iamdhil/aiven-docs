@@ -5,8 +5,6 @@ sidebar_label: Set up data retention
 
 Control how your data is distributed between storage devices in the tiered storage of an Aiven for ClickHouse service. Configure tables so that your data is automatically written either to SSD or object storage as needed.
 
-## About data retention control
-
 If you have the tiered storage feature
 [enabled](/docs/products/clickhouse/howto/enable-tiered-storage) on your Aiven for
 ClickHouse service, your data is
@@ -33,8 +31,7 @@ For data retention control purposes, the TTL clause uses the following:
 
 ## Prerequisites
 
--   [Enable](/docs/products/clickhouse/howto/enable-tiered-storage) tiered storage on
-    the table level.
+-   Tiered storage [enabled](/docs/products/clickhouse/howto/enable-tiered-storage)
 -   Command line tool installed
     ([ClickHouse client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli))
 
