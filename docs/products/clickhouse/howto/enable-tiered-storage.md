@@ -3,6 +3,8 @@ title: Enable tiered storage in Aiven for ClickHouse®
 sidebar_label: Enable tiered storage
 ---
 
+import ConsoleLabel from "@site/src/components/ConsoleIcons";
+
 Enable the [Aiven for ClickHouse® tiered storage feature](/docs/products/clickhouse/concepts/clickhouse-tiered-storage) on your project and activate it for specific tables.
 
 ### Limitations
@@ -30,17 +32,21 @@ Enable the [Aiven for ClickHouse® tiered storage feature](/docs/products/clickh
 
 ### Tools
 
-To activate tiered storage, use SQL and an SQL client (for example, the
-ClickHouse CLI client).
+Depending on how to activate tiered storage, you may need:
+
+- [Aiven Console](https://console.aiven.io)
+- SQL and an SQL client (for example, the ClickHouse CLI client)
 
 ## Prerequisites
 
--   You have an Aiven organization and at least one project.
--   You have a command line tool
+-   You have an Aiven organization, at least one project, and at least one Aiven for
+    ClickHouse service.
+-   You have access to the [Aiven Console](https://console.aiven.io) or
+    a command line tool
     ([ClickHouse client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli)) installed.
--   All maintenance updates are applied on your service (check in Aiven
-    Console: your service's page > **Service settings** > **Service
-    management** > **Maintenance updates**).
+-   All maintenance updates are applied on your service (check in the
+    [Aiven Console](https://console.aiven.io): your service's page > **Service settings**
+    \> **Service management** > **Maintenance updates**).
 
 ## Activate tiered storage on a table
 
@@ -51,10 +57,10 @@ use either SQL or [Aiven Console](https://console.aiven.io).
 ### Activate in Aiven Console
 
 1. Log in to [Aiven Console](https://console.aiven.io), and go to your organization,
-   in **Project** > **Service**.
+   projecy, and service.
 1. On the **Overview** page of your service, select **Databases and tables** from the sidebar.
 1. In the **Databases and tables** view, find a table on which to activate tiered
-   storage, and select **Activate tiered storage** from the **Actions** menu (**...**).
+   storage, and click <ConsoleLabel name="actions"/> > **Activate tiered storage**.
 1. In the **Activate tiered storage** window, confirm activating
    tiered storage on the table and understand the impact by selecting **Activate**.
 
