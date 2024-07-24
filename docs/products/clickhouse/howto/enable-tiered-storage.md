@@ -4,8 +4,10 @@ sidebar_label: Enable tiered storage
 ---
 
 import ConsoleLabel from "@site/src/components/ConsoleIcons";
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-Enable the [Aiven for ClickHouse® tiered storage feature](/docs/products/clickhouse/concepts/clickhouse-tiered-storage) on your project and activate it for specific tables.
+Enable the [tiered storage feature](/docs/products/clickhouse/concepts/clickhouse-tiered-storage) on a table in your Aiven for ClickHouse® service.
 
 ### Limitations
 
@@ -32,8 +34,7 @@ Enable the [Aiven for ClickHouse® tiered storage feature](/docs/products/clickh
 
 ## Prerequisites
 
--   You have an Aiven organization, at least one project, and at least one Aiven for
-    ClickHouse service.
+-   You have at least one Aiven for ClickHouse service.
 -   Depending on how to activate tiered storage, you need:
     - [Aiven Console](https://console.aiven.io) or
     - SQL and an SQL client (for example, the [ClickHouse client](/docs/products/clickhouse/howto/connect-with-clickhouse-cli)).
@@ -43,31 +44,31 @@ Enable the [Aiven for ClickHouse® tiered storage feature](/docs/products/clickh
 
 ## Activate tiered storage on a table
 
-When you have tiered storage activated on your project, you can
-enable it on your tables, both new and existing ones. You can
-use either SQL or [Aiven Console](https://console.aiven.io).
+You can enable tiered storage both on new tables and on existing ones. For that purpoe,
+you can use either CLI or the [Aiven Console](https://console.aiven.io).
 
-### Activate in Aiven Console
-
-1. Log in to [Aiven Console](https://console.aiven.io), and go to your organization,
+<Tabs groupId="group1">
+<TabItem value="1" label="Console" default>
+1. Log in to the [Aiven Console](https://console.aiven.io), and go to your organization,
    project, and service.
 1. On the <ConsoleLabel name="overview"/> of your service, select
    <ConsoleLabel name="databasestables"/> from the sidebar.
 1. In the <ConsoleLabel name="databasestables"/> view, find a table on which to activate tiered
-   storage, and click <ConsoleLabel name="actions"/> > <ConsoleLabel name="activatetieredstorage"/>.
-1. In the <ConsoleLabel name="activatetieredstorage"/> window, confirm activating
-   tiered storage on the table and understand the impact by selecting **Activate**.
-
-### Activate with SQL
-
+   storage, and click <ConsoleLabel name="actions"/> > <ConsoleLabel name="activatetieredstorage"/>
+   \> **Activate**.
+</TabItem>
+<TabItem value="2" label="CLI">
 1. [Connect to your Aiven for ClickHouse service](/docs/products/clickhouse/howto/list-connect-to-service)
-   using, for example, the ClickHouse client (CLI).
+   using, for example, the ClickHouse client.
 1. To activate the tiered storage feature on a specific table,
    set `storage_policy` to `tiered` on this table by executing the following SQL statement:
 
-   ```bash
+   ```sql
    ALTER TABLE database-name.table-name MODIFY SETTING storage_policy = 'tiered'
    ```
+
+</TabItem>
+</Tabs>
 
 Tiered storage is activated on your table and data in this table is now
 distributed between two tiers: SSD and object storage.
