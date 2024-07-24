@@ -44,7 +44,7 @@ Enable the [tiered storage feature](/docs/products/clickhouse/concepts/clickhous
 
 ## Activate tiered storage on a table
 
-You can enable tiered storage both on new tables and on existing ones. For that purpoe,
+You can enable tiered storage both on new tables and on existing ones. For that purpose,
 you can use either CLI or the [Aiven Console](https://console.aiven.io).
 
 <Tabs groupId="group1">
