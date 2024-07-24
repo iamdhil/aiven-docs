@@ -3,6 +3,9 @@ title: Configure data retention thresholds in Aiven for ClickHouse®'s tiered st
 sidebar_label: Set up data retention
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 Control how your data is distributed between storage devices in the tiered storage of an Aiven for ClickHouse service. Configure tables so that your data is automatically written either to SSD or object storage as needed.
 
 If you have the tiered storage feature
@@ -37,22 +40,24 @@ For data retention control purposes, the TTL clause uses the following:
 
 ## Configure time-based data retention {#time-based-retention-config}
 
-1.  [Connect to your Aiven for ClickHouse service](/docs/products/clickhouse/howto/list-connect-to-service) using, for example, the ClickHouse client (CLI).
+1.  [Connect to your Aiven for ClickHouse service](/docs/products/clickhouse/howto/list-connect-to-service) using, for example, the ClickHouse client.
 
 1.  Select a database for operations you intend to perform.
 
-    ```bash
+    ```sql
     USE database-name
     ```
 
-### Add TTL to a new table
+### Add TTL
 
+<Tabs groupId="group1">
+<TabItem value="1" label="Add TTL to a new table" default>
 Create a table with the `storage_policy` setting set to `tiered` (to
 [enable](/docs/products/clickhouse/howto/enable-tiered-storage) the feature) and TTL
 (time-to-live) configured to add a
 time-based data retention threshold on the table.
 
-```shell
+```sql
 CREATE TABLE example_table (
     SearchDate Date,
     SearchID UInt64,
@@ -65,20 +70,23 @@ TTL SearchDate + INTERVAL 1 WEEK TO VOLUME 'remote'
 SETTINGS storage_policy = 'tiered';
 ```
 
-### Add TTL to an existing table
+</TabItem>
+<TabItem value="2" label="Add TTL to an existing table">
+Use the `MODIFY TTL` clause:
 
-Use the MODIFY TTL clause:
-
-```shell
+```sql
 ALTER TABLE database_name.table_name MODIFY TTL ttl_expression;
 ```
 
-### Update TTL to an existing table
+</TabItem>
+</Tabs>
 
-Change an already configured TTL in an existing table by using the ALTER
-TABLE MODIFY TTL clause:
+### Update TTL
 
-```shell
+Change an already configured TTL in an existing table by using the `ALTER
+TABLE MODIFY TTL` clause:
+
+```sql
 ALTER TABLE database_name.table_name MODIFY TTL ttl_expression;
 ```
 
