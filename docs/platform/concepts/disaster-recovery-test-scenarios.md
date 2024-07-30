@@ -1,5 +1,5 @@
 ---
-title: Disaster recovery testing
+title: Disaster recovery testings
 ---
 
 Aiven provides disaster recovery testing services to help you plan for data center or service outages.
